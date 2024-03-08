@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block body %}
+
+<h1>Edit Musician</h1>
+<form method="post">
+	{% load crispy_forms_tags %} {% csrf_token %} {{ form | crispy }}
+	<div>
+		<button class="btn btn-primary">Submit</button>
+		<a href="{% url 'delete_musician' musician_id %}" class="btn btn-danger">Delete</a>
+	<div>
+	<small style="color: grey;">
+		Deleting the musician will also delete all the albums associated with this musician.
+	</small>
+</form>
+
+{% endblock body %}
